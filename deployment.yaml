@@ -18,6 +18,7 @@ spec:
       containers:
       - name: crud-app
         image: orlandonlyne/crud:latest
+        imagePullPolicy: Always  # Asegura que Kubernetes siempre descargue la última versión de la imagen
         ports:
         - containerPort: 8080
 ---
