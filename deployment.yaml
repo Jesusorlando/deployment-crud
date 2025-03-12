@@ -18,6 +18,8 @@ spec:
       labels:
         app: crud-app
     spec:
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: crud-app
         image: orlandonlyne/crud:latest
