@@ -8,11 +8,6 @@ spec:
   selector:
     matchLabels:
       app: crud-app
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1           # Permite crear un pod adicional temporalmente durante la actualización
-      maxUnavailable: 0     # No permite que falte ningún pod disponible durante la actualización
   template:
     metadata:
       labels:
@@ -26,6 +21,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+    strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1           # Permite crear un pod adicional temporalmente durante la actualización
+      maxUnavailable: 0     # No permite que falte ningún pod disponible durante la actualización
 ---
 apiVersion: v1
 kind: Service
