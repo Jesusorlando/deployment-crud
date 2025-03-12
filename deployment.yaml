@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-    strategy:
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1           # Permite crear un pod adicional temporalmente durante la actualización
