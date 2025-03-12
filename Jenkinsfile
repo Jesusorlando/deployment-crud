@@ -15,7 +15,7 @@ git --version'''
           string(credentialsId: 'k8s-minikube', variable: 'api_token')
         ]) {
           // Aplicar los cambios en el deployment
-          sh 'kubectl --token $api_token --server https://10.1.3.80:16443 --insecure-skip-tls-verify=true apply -f deployment.yaml'
+          sh 'kubectl --token $api_token --server https://10.1.3.80:16443 --insecure-skip-tls-verify=true replace -f deployment.yaml'
 
           // Forzar reinicio para asegurar que la nueva imagen se use
           //sh 'kubectl --token $api_token --server https://10.1.3.80:16443 --insecure-skip-tls-verify=true rollout restart deployment crud-app'
