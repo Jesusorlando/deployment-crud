@@ -8,17 +8,20 @@ spec:
   selector:
     matchLabels:
       app: crud-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1           # Permite crear un pod adicional temporalmente durante la actualización
+      maxUnavailable: 0     # No permite que falte ningún pod disponible durante la actualización
   template:
     metadata:
       labels:
         app: crud-app
     spec:
-      hostNetwork: true
-      dnsPolicy: ClusterFirstWithHostNet
       containers:
       - name: crud-app
-        image: orlandonlyne/crud:31
-        imagePullPolicy: Always  # Asegura que Kubernetes siempre descargue la última versión de la imagen
+        image: orlandonlyne/crud:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
 ---
