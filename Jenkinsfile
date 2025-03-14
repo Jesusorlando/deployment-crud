@@ -26,7 +26,7 @@ git --version'''
   post {
     success {
       echo 'Despliegue completado exitosamente!'
-      build job: 'pruebaSelenium', wait: false
+      // build job: 'pruebaSelenium', wait: false
     }
     failure {
       echo 'Error en el despliegue de la aplicación'
